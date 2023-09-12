@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Carrito de Compras</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <ul id="listaProductos">
+                    <li>
+                        <p>Zapatillas</p>
+                        <p>Precio: $100</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito(1)">Agregar</button>
+                    </li>
+                    <li>
+                        <p>Camiseta</p>
+                        <p>Precio: $100</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito(2)">Agregar</button>
+                    </li>
+                    <li>
+                        <p>Medias</p>
+                        <p>Precio: $100</p>
+                        <button class="btn btn-primary" onclick="agregarAlCarrito(3)">Agregar</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Carrito</h2>
+                <ul id="carrito">
+                    <!-- Aquí se mostrarán los productos agregados al carrito -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
