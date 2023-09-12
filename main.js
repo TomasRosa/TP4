@@ -95,12 +95,42 @@ function actualizarVistaCarrito()
 {
     const carritoElement = document.getElementById("carrito");
     carritoElement.innerHTML = "";
+    let total = 0;
 
     carrito.carrito.forEach(producto => 
     {
         const li = document.createElement("li");
-        li.textContent = `${producto.nombre} - Cantidad: ${producto.cantidad}`;
+        const subtotal = producto.precio * producto.cantidad;
+        li.textContent = `${producto.nombre} - Cantidad: ${producto.cantidad} - El precio de la compra es de: ${producto.precio * producto.cantidad}`;
+
+        const btnDelete = document.createElement("button");
+        btnDelete.innerHTML = "X";
+
+        btnDelete.addEventListener("click", () =>{
+            if (producto.cantidad > 0) 
+            {
+                producto.cantidad--;
+            } 
+            else if (producto.cantidad === 0) 
+            {
+                const productoIndex = carrito.carrito.indexOf(producto);
+                carrito.carrito.splice(productoIndex, 1);
+            }
+            actualizarVistaCarrito();
+        })
         carritoElement.appendChild(li);
+        carritoElement.appendChild(btnDelete);
+        total += subtotal;
     });
+    const p = document.createElement('p');
+    p.innerHTML = `El total de la compra es de: ${total}`
+    carritoElement.appendChild(p);
+
+    if(total === 0)
+    {
+        setTimeout(() =>{
+            p.remove();
+        },2000)
+    }
 }
 
